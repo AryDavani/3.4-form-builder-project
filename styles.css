@@ -12,5 +12,8 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 40%;
+  width: 40vw;
+}
+#signup button {
+  width: 20vw;
 }

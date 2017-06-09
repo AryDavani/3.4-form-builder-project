@@ -78,47 +78,50 @@ var formData = [
   }
 ];
 
-
 var formNode = document.getElementById('signup');
 
 // Header of form
+
 var formHeader = document.createElement('h1');
 var formHeaderText = document.createTextNode('Sign Up For My Web App');
 formHeader.appendChild(formHeaderText);
 formNode.appendChild(formHeader);
 
+
 // input forms
 
 for (var i = 0; i < formData.length; i++){
 
-  if (formData[i].hasOwnProperty("type")){
+  if (formData[i].type !== "select"){
     var inputTag = document.createElement('input');
     inputTag.setAttribute('type', formData[i].type);
     formNode.appendChild(inputTag);
   }
 
-  if (formData[i].hasOwnProperty("label")){
+  if (formData[i].type !== "select"){
     inputTag.placeholder = formData[i].label;
+  }
+
+  if (formData[i].type === "select"){
+    var selectLang = document.createElement('select');
+    selectLang.setAttribute('class', 'selectLanguage');
+    var selectTag = document.querySelector('.selectLanguage');
+
+    for (var t = 0; t < formData[i].options.length; t++){
+      var selectLabel = document.createElement('option');
+      var selectLabelText = document.createTextNode(formData[i].options[t].label);
+      selectLabel.appendChild(selectLabelText);
+      selectLabel.setAttribute('value', formData[i].options[t].value);
+      selectLang.appendChild(selectLabel);
+    }
+
+    formNode.appendChild(selectLang);
+  }
 }
-}
 
+// Submit Form Button
 
-
-
-
-//
-// // Inputs
-// var inputTag = document.createElement('input');
-// var i = document.createElement('i');
-// i.setAttribute('class', 'fa fa-user');
-// inputTag.setAttribute('type', 'text');
-// inputTag.setAttribute('class', 'firstName');
-// formNode.appendChild(inputTag);
-// formNode.appendChild(i);
-
-
-// // Submit Form Button
-// var button = document.createElement('button');
-// var buttonContent = document.createTextNode('Submit Form');
-// button.appendChild(buttonContent);
-// formNode.appendChild(button);
+var button = document.createElement('button');
+var buttonContent = document.createTextNode('Submit Form');
+button.appendChild(buttonContent);
+formNode.appendChild(button);
