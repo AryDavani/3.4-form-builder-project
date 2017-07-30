@@ -12,8 +12,12 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 40vw;
+  width: 30vw;
 }
 #signup button {
-  width: 20vw;
+  width: 10vw;
+}
+
+input {
+  margin: 10px;
 }

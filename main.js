@@ -123,5 +123,6 @@ for (var i = 0; i < formData.length; i++){
 
 var button = document.createElement('button');
 var buttonContent = document.createTextNode('Submit Form');
+button.setAttribute('class', 'btn');
 button.appendChild(buttonContent);
 formNode.appendChild(button);
